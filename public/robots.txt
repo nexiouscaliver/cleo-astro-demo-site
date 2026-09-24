@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nexiouscaliver.github.io/cleo-astro-demo-site/sitemap-index.xml

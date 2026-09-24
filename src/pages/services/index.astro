@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { SITE, href } from '../../site';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+<Layout title={`Services | ${SITE.name}`} description="SEO, GEO and B2B web development services from Harbourline Digital, a Singapore B2B marketing agency.">
+  <h1>Services</h1>
+  <ul>
+    {services.map((s) => <li><a href={href(`/services/${s.id}/`)}>{s.data.title}</a> — {s.data.description}</li>)}
+  </ul>
+</Layout>

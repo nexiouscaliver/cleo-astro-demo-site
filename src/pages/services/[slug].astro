@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import { SITE } from '../../site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({ params: { slug: service.id }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const faqs = service.data.faqs ?? [];
+const jsonLd = faqs.length
+  ? [{
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }]
+  : [];
+---
+<Layout title={`${service.data.title} | ${SITE.name}`} description={service.data.description} jsonLd={jsonLd}>
+  <h1>{service.data.title}</h1>
+  <Content />
+  {faqs.length > 0 && (
+    <section>
+      <h2>Frequently asked questions</h2>
+      {faqs.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+    </section>
+  )}
+</Layout>

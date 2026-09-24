@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../site';
+---
+<Layout title={`Contact | ${SITE.name}`} description="Talk to Harbourline Digital about B2B marketing, SEO and GEO. Visit us at 21 Harbour Road, Singapore 049315.">
+  <h1>Contact us</h1>
+  <address>
+    {SITE.legalName}<br />
+    21 Harbour Road, #05-01<br />
+    Singapore 049315<br />
+    <a href="tel:+6560000000">+65 6000 0000</a> · <a href="mailto:hello@example.com">hello@example.com</a>
+  </address>
+</Layout>

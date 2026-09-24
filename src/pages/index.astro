@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { SITE, href } from '../site';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+<Layout
+  title={`${SITE.name} | B2B Marketing, SEO & GEO Agency in Singapore`}
+  description="Harbourline Digital is a Singapore-headquartered B2B marketing agency helping complex-sale companies win search and AI answer-engine visibility."
+>
+  <h1>B2B marketing that shows up where buyers research</h1>
+  <p>
+    {SITE.name} is a Singapore-headquartered B2B marketing agency. We have run 400+ campaigns over
+    12 years for technology, education and professional-services firms.
+  </p>
+  <h2>Services</h2>
+  <ul>
+    {services.map((s) => <li><a href={href(`/services/${s.id}/`)}>{s.data.title}</a></li>)}
+  </ul>
+</Layout>
