@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { SITE, href } from '../site';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const jsonLd = {"@context":"https://schema.org","@type":["Organization","ProfessionalService"],"@id":"https://nexiouscaliver.github.io/cleo-astro-demo-site/#organization","name":"Harbourline Digital","legalName":"Harbourline Digital Pte Ltd","url":"https://nexiouscaliver.github.io/cleo-astro-demo-site/","foundingDate":"2013","address":{"@type":"PostalAddress","streetAddress":"21 Harbour Road, #05-01","addressLocality":"Singapore","postalCode":"049315","addressCountry":"SG"},"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+65 6000 0000","email":"hello@example.com","availableLanguage":["en"]},"areaServed":["Singapore","Southeast Asia","Australia","United Kingdom"],"sameAs":["https://www.linkedin.com/company/example-harbourline","https://x.com/example_harbourline"]};
 ---
 <Layout
   title={`${SITE.name} | B2B Marketing, SEO & GEO Agency in Singapore`}
   description="Harbourline Digital is a Singapore-headquartered B2B marketing agency helping complex-sale companies win search and AI answer-engine visibility."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <h1>B2B marketing that shows up where buyers research</h1>
   <p>
     {SITE.name} is a Singapore-headquartered B2B marketing agency. We have run 400+ campaigns over
