@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nexiouscaliver.github.io/cleo-astro-demo-site/sitemap-index.xml
+Sitemap: https://cleo-astro-demo-site.vercel.app/sitemap-index.xml
