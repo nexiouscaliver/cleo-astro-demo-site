@@ -1,5 +1,5 @@
 ---
-title: From Job Titles to Real Conversations — A B2B Messaging Framework
+title: B2B Messaging Framework Guide
 author: Daniel Koh
 pubDate: 2026-07-02
 ---
