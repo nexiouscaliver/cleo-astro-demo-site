@@ -5,6 +5,8 @@ import { z } from 'astro/zod';
 const services = defineCollection({
   loader: glob({ base: './src/content/services', pattern: '**/*.md' }),
   schema: z.object({
+    seoDescription: z.string().optional(),
+    seoTitle: z.string().optional(),
     title: z.string(),
     description: z.string(),
     order: z.number(),

@@ -23,7 +23,7 @@ const jsonLd = faqs.length
     }]
   : [];
 ---
-<Layout title={`${service.data.title} | ${SITE.name}`} description={service.data.description} jsonLd={jsonLd}>
+<Layout title={service.data.seoTitle ?? `${service.data.title} | ${SITE.name}`} description={service.data.seoDescription ?? service.data.description} jsonLd={jsonLd}>
   <h1>{service.data.title}</h1>
   <Content />
   {faqs.length > 0 && (
