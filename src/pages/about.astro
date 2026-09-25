@@ -1,8 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE, href } from '../site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': 'https://cleo-astro-demo-site.vercel.app/about/#webpage',
+  'url': 'https://cleo-astro-demo-site.vercel.app/about/',
+  'name': 'B2B Marketing Team | Harbourline Digital',
+  'description': 'Looking for B2B marketing in Singapore? Harbourline Digital is a 30-person team. Learn more.',
+  'isPartOf': { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
+  'publisher': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  'mainEntity': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+};
 ---
 <Layout title="B2B Marketing Team | Harbourline Digital" description="Looking for B2B marketing in Singapore? Harbourline Digital is a 30-person team. Learn more.">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
   <h1>About {SITE.name}</h1>
   <p>Founded in 2013, we are a team of 30 strategists, writers and engineers based in Singapore.</p>
   <img src={href('/images/harbourline-team.png')} alt="Q3 plan meeting" width="1200" height="600" />
