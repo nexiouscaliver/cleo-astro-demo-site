@@ -7,4 +7,6 @@ In the last three months, every client meeting I have walked into started with t
 
 ## Start with the buying committee
 
+![](/images/buying-committee-map.svg)
+
 Map who signs, who uses, and who blocks before you write a single headline.
