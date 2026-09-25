@@ -4,7 +4,7 @@ description: AI answer engines now shape B2B shortlists. Here is what changes fo
 author: Priya Raman
 pubDate: 2026-08-12
 ---
-Buyers increasingly start research in an AI assistant rather than a search box. That changes which sources get seen.
+AI assistants now shape B2B shortlists before buyers ever search: in our client data, most committees ask ChatGPT or Perplexity for vendor options first. To be on that list, your pages must be the sources those engines cite.
 
 ## What stays the same
 
