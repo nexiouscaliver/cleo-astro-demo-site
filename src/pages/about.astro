@@ -1,8 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE, href } from '../site';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/#website',
+    'name': 'Harbourline Digital',
+    'url': 'https://cleo-astro-demo-site.vercel.app/',
+    'publisher': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/#organization',
+    'name': 'Harbourline Digital',
+    'legalName': 'Harbourline Digital Pte Ltd',
+    'url': 'https://cleo-astro-demo-site.vercel.app/',
+    'description': 'Founded in 2013, Harbourline Digital is a B2B marketing team of strategists, writers and engineers based in Singapore.',
+    'image': 'https://cleo-astro-demo-site.vercel.app/images/harbourline-team.svg',
+    'sameAs': ['https://x.com/example_harbourline'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/about/#webpage',
+    'url': 'https://cleo-astro-demo-site.vercel.app/about/',
+    'name': 'About Us | Harbourline Digital',
+    'description': 'Founded in 2013, Harbourline Digital is a B2B marketing team of strategists, writers and engineers based in Singapore.',
+    'inLanguage': 'en',
+    'isPartOf': { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
+    'publisher': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+    'mainEntity': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  },
+];
 ---
 <Layout title={`About Us | ${SITE.name}`} description="Founded in 2013, Harbourline Digital is a B2B marketing team of strategists, writers and engineers based in Singapore.">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
   <h1>About {SITE.name}</h1>
   <p>Founded in 2013, we are a team of 30 strategists, writers and engineers based in Singapore.</p>
   <img src={href('/images/harbourline-team.svg')} width="960" height="480" />
