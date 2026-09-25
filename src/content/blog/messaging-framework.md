@@ -9,6 +9,6 @@ In the last three months, every client meeting I have walked into started with t
 
 ## Start with the buying committee
 
-![](/images/buying-committee-map.png)
+![B2B buying committee chart](/images/buying-committee-map.png)
 
 Map who signs, who uses, and who blocks before you write a single headline.
