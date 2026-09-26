@@ -3,8 +3,7 @@ title: Five Questions to Ask Before Hiring a B2B SEO Agency
 author: Shahil Kadia
 pubDate: 2026-09-26
 tags:
-- b2b seo
-- agency selection
+- questions to ask
 ---
 
 Choosing a B2B SEO agency is a long-term decision, so the right questions up front save months of rework.
