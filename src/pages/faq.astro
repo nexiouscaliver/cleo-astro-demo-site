@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, href } from '../site';
+
+const title = 'Frequently asked questions | Harbourline Digital';
+const description = 'Answers to common questions about Harbourline Digital\'s SEO, GEO and web development services, our pricing approach and how an engagement works.';
+
+const faqs = [
+  {
+    question: 'What services does Harbourline Digital offer?',
+    answer: 'We offer three core services for B2B companies: search engine optimisation (SEO), generative engine optimisation (GEO), and web development. Most clients combine them, so their site is technically sound, easy to find in search and clearly represented in AI-generated answers.',
+  },
+  {
+    question: 'What is GEO, and how is it different from SEO?',
+    answer: 'SEO improves how your pages rank in traditional search results. GEO, or generative engine optimisation, focuses on how AI assistants and answer engines understand, cite and summarise your brand. The two overlap: clear structure, accurate structured data and genuinely useful content help with both.',
+  },
+  {
+    question: 'How do you approach pricing?',
+    answer: 'We scope every engagement around your goals rather than selling fixed packages. After an initial conversation we propose either a defined project, such as a site rebuild or technical audit, or an ongoing monthly retainer, with the deliverables and costs set out clearly before any work begins.',
+  },
+  {
+    question: 'What does a typical engagement look like?',
+    answer: 'Engagements usually follow four stages: a discovery call to understand your business, an audit of your current site and search presence, a prioritised plan with agreed outcomes, and then delivery with regular reporting. You work with the same small team of strategists, writers and engineers throughout.',
+  },
+  {
+    question: 'How long before we see results?',
+    answer: 'Technical fixes and web development work show impact as soon as they ship. Organic search and AI visibility build over time, and most clients see meaningful movement within a few months. We agree on the metrics we will track at the start so progress is easy to follow.',
+  },
+  {
+    question: 'Do you work with companies outside Singapore?',
+    answer: 'Yes. Our team is based in Singapore, but we work with B2B companies across the region and beyond. Discovery, planning and reporting all happen remotely, so location is rarely a constraint.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/faq/#webpage',
+    'url': 'https://cleo-astro-demo-site.vercel.app/faq/',
+    'name': title,
+    'description': description,
+    'isPartOf': { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
+    'publisher': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+    'mainEntity': faqs.map((faq) => ({
+      '@type': 'Question',
+      'name': faq.question,
+      'acceptedAnswer': { '@type': 'Answer', 'text': faq.answer },
+    })),
+  },
+];
+---
+<Layout title={title} description={description} jsonLd={jsonLd}>
+  <h1>Frequently asked questions</h1>
+  <p>Common questions about working with {SITE.name}: our SEO, GEO and web development services, how we price our work and what an engagement involves.</p>
+
+  <section>
+    {faqs.map((faq) => (
+      <article>
+        <h2>{faq.question}</h2>
+        <p>{faq.answer}</p>
+      </article>
+    ))}
+  </section>
+
+  <section>
+    <h2>Still have questions?</h2>
+    <p>Explore our <a href={href('/services/')}>services</a> or <a href={href('/contact/')}>get in touch</a> and we will be happy to help.</p>
+  </section>
+</Layout>
