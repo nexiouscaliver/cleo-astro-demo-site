@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
 Sitemap: https://cleo-astro-demo-site.vercel.app/sitemap-index.xml
