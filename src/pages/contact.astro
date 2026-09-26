@@ -1,8 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE } from '../site';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://cleo-astro-demo-site.vercel.app/contact/#ContactPage",
+  "name": "Contact | Harbourline Digital",
+  "url": "https://cleo-astro-demo-site.vercel.app/contact/",
+  "mainEntity": {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://cleo-astro-demo-site.vercel.app/#localbusiness",
+    "name": "Harbourline Digital Pte Ltd",
+    "url": "https://cleo-astro-demo-site.vercel.app/",
+    "telephone": "+6560000000",
+    "email": "hello@example.com",
+    "address": {
+      "@context": "https://schema.org",
+      "@type": "PostalAddress",
+      "streetAddress": "21 Harbour Road, #05-01",
+      "addressLocality": "Singapore",
+      "postalCode": "049315",
+      "addressCountry": "SG"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/example-harbourline",
+      "https://x.com/example_harbourline"
+    ]
+  }
+};
 ---
 <Layout title={`Contact | ${SITE.name}`} description="Talk to Harbourline Digital about B2B marketing, SEO and GEO. Visit us at 21 Harbour Road, Singapore 049315.">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
   <h1>Contact us</h1>
   <address>
     {SITE.legalName}<br />
