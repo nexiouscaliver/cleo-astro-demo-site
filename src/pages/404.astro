@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, href } from '../site';
+
+// Utility page: not-found. No page-level JSON-LD, no canonical of its own.
+// It should not be indexed; the host serves this file with a 404 status.
+---
+<Layout title={`Sorry, we couldn't find that page | ${SITE.name}`} description="The page you were looking for could not be found.">
+  <meta name="robots" content="noindex, follow" />
+  <h1>Sorry, we couldn't find that page</h1>
+  <p>Page not found (error 404). The link you followed may be broken, or the page may have been moved or removed.</p>
+  <p>We apologise for the inconvenience. You can head back to the {SITE.name} homepage and carry on from there.</p>
+  <p><a href={href('/')}>Back to the homepage</a></p>
+</Layout>
