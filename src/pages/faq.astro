@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, href } from '../site';
+
+const pageUrl = 'https://cleo-astro-demo-site.vercel.app/faq';
+const title = 'Frequently Asked Questions | Harbourline Digital';
+const description = 'Answers to common questions about working with Harbourline Digital on B2B SEO, GEO and web development: timelines, pricing, reporting and getting started.';
+
+const sections = [
+  {
+    id: 'services',
+    heading: 'Services and approach',
+    items: [
+      {
+        q: 'What does Harbourline Digital do?',
+        a: 'We help B2B companies grow organic demand through SEO, generative engine optimisation (GEO) and web development, handled by one team of strategists, writers and engineers.',
+      },
+      {
+        q: 'What is GEO, and how is it different from SEO?',
+        a: 'SEO focuses on ranking in traditional search results. GEO focuses on making your brand accurately cited and recommended in AI-driven answers, such as AI search overviews and chat assistants. The two share foundations like clear content, structured data and technical health, so we plan them together.',
+      },
+      {
+        q: 'Do you only work with B2B companies?',
+        a: 'Yes. Our processes, content and reporting are built around longer B2B sales cycles, multiple decision-makers and pipeline-focused goals.',
+      },
+    ],
+  },
+  {
+    id: 'timelines',
+    heading: 'Timelines',
+    items: [
+      {
+        q: 'How long before we see SEO results?',
+        a: 'Technical fixes can show impact within weeks, while content and authority work typically builds meaningful traction over three to six months. We set milestones at the start so progress is visible along the way.',
+      },
+      {
+        q: 'How long does a website build take?',
+        a: 'It depends on scope. A focused marketing site is usually delivered in weeks, while larger builds with migrations or integrations take longer. We agree a phased timeline before any work begins.',
+      },
+      {
+        q: 'How quickly can you start?',
+        a: 'Once scope is agreed, we usually kick off with a discovery and audit phase within a couple of weeks, depending on current team availability.',
+      },
+    ],
+  },
+  {
+    id: 'pricing',
+    heading: 'Pricing',
+    items: [
+      {
+        q: 'How do you price your work?',
+        a: 'Ongoing SEO and GEO programmes are typically priced as a monthly retainer, while website builds and audits are scoped as fixed-fee projects. Every proposal is based on your goals and the work required.',
+      },
+      {
+        q: 'Do you require long-term contracts?',
+        a: 'We recommend giving organic programmes enough time to deliver, and we discuss a sensible initial term during scoping. Project work is priced and contracted per engagement.',
+      },
+      {
+        q: 'Is there anything not included in the price?',
+        a: 'Proposals clearly list what is included. Third-party costs such as paid tools, hosting or licences are called out separately so there are no surprises.',
+      },
+    ],
+  },
+  {
+    id: 'reporting',
+    heading: 'Reporting and communication',
+    items: [
+      {
+        q: 'How do you report on progress?',
+        a: 'You receive regular reports covering visibility, traffic, conversions and AI-answer presence, alongside a summary of work completed and what comes next.',
+      },
+      {
+        q: 'Which metrics do you focus on?',
+        a: 'We prioritise metrics tied to business outcomes, such as qualified leads and pipeline influenced by organic channels, supported by rankings, traffic and technical health indicators.',
+      },
+      {
+        q: 'Who will we work with day to day?',
+        a: 'Each client has a dedicated lead who coordinates our strategists, writers and engineers and is your main point of contact.',
+      },
+    ],
+  },
+  {
+    id: 'getting-started',
+    heading: 'Getting started',
+    items: [
+      {
+        q: 'How do we get started?',
+        a: 'Get in touch through our contact page. We will arrange an introductory call to understand your goals, then share a proposal outlining scope, timeline and pricing.',
+      },
+      {
+        q: 'What do you need from us at the start?',
+        a: 'Typically access to analytics, search console and your CMS, plus time with the people who know your customers and sales process best.',
+      },
+    ],
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#webpage`,
+  url: pageUrl,
+  name: title,
+  description,
+  isPartOf: { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
+  publisher: { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  mainEntity: sections.flatMap((section) =>
+    section.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    }))
+  ),
+};
+---
+<Layout title={title} description={description} jsonLd={[faqJsonLd]}>
+  <h1>Frequently asked questions</h1>
+  <p>Short answers to the questions we hear most about working with {SITE.name} on B2B SEO, GEO and web development.</p>
+
+  <nav aria-label="FAQ sections">
+    <ul>
+      {sections.map((section) => (
+        <li><a href={`#${section.id}`}>{section.heading}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  {sections.map((section) => (
+    <section id={section.id}>
+      <h2>{section.heading}</h2>
+      {section.items.map((item) => (
+        <div>
+          <h3>{item.q}</h3>
+          <p>{item.a}</p>
+        </div>
+      ))}
+    </section>
+  ))}
+
+  <section>
+    <h2>Still have questions?</h2>
+    <p>We are happy to talk through your goals and how we could help.</p>
+    <p><a href={href('/contact/')}>Contact us</a></p>
+  </section>
+</Layout>
