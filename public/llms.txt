@@ -1,12 +1,27 @@
 # Harbourline Digital
 
-> Singapore-headquartered B2B marketing agency: SEO, GEO and B2B web development.
+> Harbourline Digital is a Singapore-headquartered B2B marketing agency. They help complex-sale companies win search and AI answer-engine visibility, with over 400 campaigns run in 12 years.
+
+They have run over 400 campaigns in 12 years for technology, education, and professional-services firms. The team consists of 30 marketing professionals.
+
+## Overview
+
+- [B2B Marketing, SEO & GEO Agency](https://cleo-astro-demo-site.vercel.app/): Singapore-based agency for complex-sale B2B companies, focusing on search and AI visibility.
 
 ## Services
-- [B2B SEO Services](https://cleo-astro-demo-site.vercel.app/services/seo/): Technical SEO and content strategy for B2B.
-- [Generative Engine Optimisation](https://cleo-astro-demo-site.vercel.app/services/geo/): Brand visibility in AI answer engines.
-- [B2B Web Design & Development](https://cleo-astro-demo-site.vercel.app/services/web-development/): Astro and headless builds.
+
+- [All Services](https://cleo-astro-demo-site.vercel.app/services/): Overview of SEO, GEO, and B2B web development services.
+- [Generative Engine Optimisation (GEO)](https://cleo-astro-demo-site.vercel.app/services/geo/): Tracks mentions and builds answer-first content for AI citations.
+- [B2B SEO Services](https://cleo-astro-demo-site.vercel.app/services/seo/): Technical SEO, content strategy, and link acquisition for B2B companies.
+- [B2B Web Design & Development](https://cleo-astro-demo-site.vercel.app/services/web-development/): Fast, accessible Astro and headless websites for B2B lead generation.
+
+## Insights
+
+- [Insights Blog](https://cleo-astro-demo-site.vercel.app/blog/): Articles on B2B marketing, SEO, and generative engine optimisation.
+- [AI Search Shift for B2B](https://cleo-astro-demo-site.vercel.app/blog/ai-changing-search/): Explains AI answer engines, SEO, and GEO for B2B.
+- [B2B Messaging Framework](https://cleo-astro-demo-site.vercel.app/blog/messaging-framework/): Framework to map buyers and improve B2B messaging.
 
 ## Company
-- [About](https://cleo-astro-demo-site.vercel.app/about/)
-- [Contact](https://cleo-astro-demo-site.vercel.app/contact/)
+
+- [About Harbourline Digital](https://cleo-astro-demo-site.vercel.app/about/): Learn about the 30-person B2B marketing team in Singapore.
+- [Contact Us](https://cleo-astro-demo-site.vercel.app/contact/): Contact information and location for Harbourline Digital.
