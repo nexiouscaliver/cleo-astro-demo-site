@@ -1,4 +1,4 @@
-# Managed by Cleo — cleo-verify v4
+# Managed by Cleo — cleo-verify v5
 #
 # Builds a branch on demand so Cleo can confirm a proposed change compiles BEFORE opening a
 # pull request against your production branch. It runs only when Cleo dispatches it, never on
@@ -18,8 +18,15 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      # Corepack otherwise asks before downloading pnpm or yarn, which a CI job cannot answer.
+      COREPACK_ENABLE_DOWNLOAD_PROMPT: '0'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+        with:
+          # This job never pushes. Keeping the token out of the git config keeps it away from
+          # dependency install scripts, which run in the same job.
+          persist-credentials: false
 
       # Decides which of the three setup-node steps below actually runs. A package.json that
       # EXISTS but declares no Node version anywhere setup-node's own `node-version-file`
@@ -67,54 +74,134 @@ jobs:
       # mutually exclusive on `node_source`'s output, rather than one: setup-node lets
       # `node-version` win over `node-version-file`, so passing more than one for a given run
       # would silently ignore the pin we just went looking for.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.node_source.outputs.source == 'file'
         with:
+          package-manager-cache: false
           node-version-file: ${{ hashFiles('.nvmrc') != '' && '.nvmrc' || '.node-version' }}
 
       # package.json exists AND declares a version setup-node itself can resolve (volta.node,
       # then devEngines.runtime, then engines.node — its own precedence, not hand-parsed here).
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.node_source.outputs.source == 'package'
         with:
+          package-manager-cache: false
           node-version-file: package.json
+
+      # setup-node's own dependency caching stays off (package-manager-cache: false above):
+      # Cleo's draft branches would otherwise fill the client's Actions cache.
 
       # Neither a version pin nor a package.json declaring one: Astro 5+ needs Node 22.12+,
       # so the floor is raised here rather than left at an older LTS.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.node_source.outputs.source == 'default'
         with:
+          package-manager-cache: false
           node-version: '22'
 
+      # The lockfile first — it is what the repository actually installs from — then the
+      # packageManager field for a repository that has not committed one, then npm.
       - name: Detect package manager
         id: pm
         run: |
+          declared=$(node -e "
+            try {
+              const field = require('./package.json').packageManager || '';
+              console.log(String(field).split('@')[0]);
+            } catch (e) {
+              console.log('');
+            }
+          " 2>/dev/null || true)
           if [ -f pnpm-lock.yaml ]; then
-            echo "pm=pnpm" >> "$GITHUB_OUTPUT"
+            pm=pnpm
           elif [ -f yarn.lock ]; then
-            echo "pm=yarn" >> "$GITHUB_OUTPUT"
+            pm=yarn
+          elif [ -f bun.lock ] || [ -f bun.lockb ]; then
+            pm=bun
+          elif [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+            pm=npm
           else
-            echo "pm=npm" >> "$GITHUB_OUTPUT"
+            case "$declared" in
+              pnpm|yarn|bun) pm=$declared ;;
+              *) pm=npm ;;
+            esac
+          fi
+          echo "pm=$pm" >> "$GITHUB_OUTPUT"
+
+      # Whether there is anything to build. A run that builds nothing must not read as a
+      # pass, so the Build step below is SKIPPED here (Cleo reads that step's conclusion)
+      # instead of succeeding with an echo.
+      - name: Detect build
+        id: build_check
+        run: |
+          reason=""
+          hugo=false
+          for marker in hugo.toml hugo.yaml hugo.json config/_default; do
+            if [ -e "$marker" ]; then hugo=true; fi
+          done
+          # Hugo's older config names are generic (plenty of JS repos have a config.json), so
+          # they count only beside Hugo's own folder layout.
+          for marker in config.toml config.yaml config.json; do
+            if [ -f "$marker" ] && { [ -d layouts ] || [ -d archetypes ] || [ -d themes ]; }; then
+              hugo=true
+            fi
+          done
+          if [ ! -f package.json ]; then
+            reason="there is no package.json"
+          elif ! node -e "process.exit(require('./package.json').scripts?.build ? 0 : 1)" 2>/dev/null; then
+            reason="package.json has no build script"
+          elif [ "$hugo" = true ] && ! node -e "process.exit(String(require('./package.json').scripts.build).includes('hugo') ? 0 : 1)"; then
+            reason="this is a Hugo site and its build script does not run Hugo"
+          fi
+          if [ -n "$reason" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Nothing to build::Cleo skipped the build because $reason, so this run does not verify the change."
+            echo "Cleo skipped the build because $reason." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Install dependencies
+      - name: Set up package manager
+        id: setup_pm
+        if: steps.build_check.outputs.run == 'true'
         run: |
-          corepack enable || true
+          case "${{ steps.pm.outputs.pm }}" in
+            pnpm|yarn)
+              # Node 25+ no longer ships corepack, and an older bundled copy cannot verify
+              # current pnpm releases, so install the current one either way.
+              npm install -g corepack@latest
+              corepack enable
+              ;;
+            bun)
+              npm install -g bun
+              ;;
+          esac
+          echo "Using ${{ steps.pm.outputs.pm }} $(${{ steps.pm.outputs.pm }} --version)"
+
+      - name: Install dependencies
+        id: install
+        if: steps.build_check.outputs.run == 'true'
+        run: |
           case "${{ steps.pm.outputs.pm }}" in
             pnpm) pnpm install --no-frozen-lockfile ;;
             yarn) yarn install ;;
-            *)    if [ -f package-lock.json ]; then npm ci || npm install; else npm install; fi ;;
+            bun)  bun install ;;
+            *)    if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then npm ci || npm install; else npm install; fi ;;
           esac
 
+      # Cleo's changes never touch dependencies, so a failure before the build is the
+      # environment's (a policy, a private registry, an unpinned package manager), not the
+      # change's. Cleo decides that from the step conclusions; this line tells the reader.
+      - name: Report a dependency failure
+        if: failure() && (steps.setup_pm.outcome == 'failure' || steps.install.outcome == 'failure')
+        run: echo "::error title=Dependencies could not be installed::Cleo could not install this repository's dependencies, so this failure is not caused by the proposed change."
+
       - name: Build
-        run: |
-          if node -e "process.exit(require('./package.json').scripts?.build ? 0 : 1)"; then
-            ${{ steps.pm.outputs.pm }} run build
-          else
-            echo "No build script in package.json — nothing to build."
-          fi
+        if: steps.build_check.outputs.run == 'true'
+        run: ${{ steps.pm.outputs.pm }} run build
 
       - name: Test
+        if: steps.build_check.outputs.run == 'true'
         run: |
           # npm's placeholder test script exits 1 by design; treat it as "no tests".
           if node -e "
