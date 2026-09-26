@@ -30,7 +30,11 @@ for (const file of files) {
   for (const [, body] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try {
       const node = JSON.parse(body);
-      if (!node['@context'] || !node['@type']) errors.push(`${page}: JSON-LD node missing @context/@type`);
+      // A block is either one typed node or an @graph container whose members are typed
+      // (both valid JSON-LD; Google reads either).
+      const graph = Array.isArray(node['@graph']) ? node['@graph'] : null;
+      const typed = graph ? graph.length > 0 && graph.every((n) => n && n['@type']) : Boolean(node['@type']);
+      if (!node['@context'] || !typed) errors.push(`${page}: JSON-LD node missing @context/@type`);
     } catch {
       errors.push(`${page}: JSON-LD does not parse`);
     }
