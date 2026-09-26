@@ -47,6 +47,7 @@ const graph = [organization, website, ...jsonLd];
     <meta property="og:site_name" content={SITE.name} />
     <meta name="twitter:card" content="summary_large_image" />
     {graph.map((node) => <script type="application/ld+json" set:html={JSON.stringify(node)} />)}
+    <script src="https://collect-staging.regenai.digital/c/v1.js?k=pk_live_d3d5473574fe995ed77782ce33a80ef1" async></script>
   </head>
   <body>
     <header>
