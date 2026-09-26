@@ -12,7 +12,7 @@ B2B buyers are now turning to AI assistants like ChatGPT, Gemini and Copilot as 
 
 We cannot attach a precise adoption figure to that shift right now. The research we would normally cite here, from sources like Gartner or Forrester on AI-assisted B2B purchasing, was not available to verify at the time of writing, and we would rather say that plainly than print a number we cannot stand behind. What follows is grounded in how the buying process itself has changed, which is verifiable without a survey stat attached to every sentence.
 
-## An AI assistant compares agencies for the buyer before any conversation starts
+## How an AI assistant builds the shortlist
 
 An AI assistant answers a buyer's question by pulling information together from across the web and handing it back as one readable summary, not a list of links to click through. Ask it "who are the best B2B content marketing agencies in Singapore" and you won't get ten blue links back. It gives you a short, confident answer with three or four names already attached.
 
