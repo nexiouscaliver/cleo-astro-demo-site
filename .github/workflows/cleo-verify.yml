@@ -1,11 +1,11 @@
-# Managed by Cleo — cleo-verify v3
+# Managed by Cleo — cleo-verify v4
 #
 # Builds a branch on demand so Cleo can confirm a proposed change compiles BEFORE opening a
 # pull request against your production branch. It runs only when Cleo dispatches it, never on
 # your own pushes, and it never writes to your repository.
 #
-# Safe to delete: Cleo reinstalls it on the next verification, and falls back to your own CI
-# if it cannot.
+# Added from Cleo's CI tab. Remove it there, or delete this file: Cleo then verifies with your
+# own CI and never adds it back unless you add it again.
 name: Cleo verification
 
 on:
