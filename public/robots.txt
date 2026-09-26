@@ -1,10 +1,18 @@
 User-agent: *
 Allow: /
 
-User-agent: GPTBot
-Disallow: /
+# User-agent: GPTBot  # REMOVED — blocking AI crawler
+# Disallow: /  # REMOVED — was blocking AI crawler
 
-User-agent: ClaudeBot
-Disallow: /
+# User-agent: ClaudeBot  # REMOVED — blocking AI crawler
+# Disallow: /  # REMOVED — was blocking AI crawler
 
 Sitemap: https://cleo-astro-demo-site.vercel.app/sitemap-index.xml
+
+
+# ── AI Crawler Access (added by CLEO) ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
