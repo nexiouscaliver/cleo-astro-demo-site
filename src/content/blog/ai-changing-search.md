@@ -8,6 +8,6 @@ seoDescription: "Looking for B2B SEO clarity? Harbourline Digital explains AI an
 ---
 Buyers increasingly start research in an AI assistant rather than a search box. That changes which sources get seen.
 
-## What stays the same
+#### What stays the same
 
 Crawlable, well-structured pages still win. AI engines lean on the same signals search engines do.
