@@ -54,11 +54,65 @@ const breadcrumbJsonLd = {
 ---
 <Layout title="Contact B2B Marketing in Singapore" description="Looking for B2B marketing in Singapore? Harbourline Digital helps with SEO and GEO. Contact us now." jsonLd={[breadcrumbJsonLd]}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
-  <h1>Contact us</h1>
+  <h1 id="contact-heading">Contact Our Enterprise Solutions Team</h1>
   <address>
-    {SITE.legalName}<br />
-    21 Harbour Road, #05-01<br />
-    Singapore 049315<br />
-    <a href="tel:+6560000000">+65 6000 0000</a> · <a href="mailto:hello@example.com">hello@example.com</a>
+    <strong itemprop="name">Harbourline Digital Pte Ltd</strong><br />
+    <span itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
+      <span itemprop="streetAddress">21 Harbour Road, #05-01</span><br />
+      <span itemprop="addressLocality">Singapore</span> <span itemprop="postalCode">049315</span>
+    </span><br />
+    <a href="tel:+6560000000" itemprop="telephone" aria-label="Call our Singapore office">+65 6000 0000</a>
+    <span aria-hidden="true">·</span>
+    <a href="mailto:hello@example.com" itemprop="email" aria-label="Email our enterprise support team">hello@example.com</a>
   </address>
+
+  <h2 id="benefits-heading">Industrial Applications and Strategic Benefits</h2>
+  <p>Harbourline Digital provides high-performance digital infrastructure designed to catalyze enterprise growth and operational efficiency. Our solutions are engineered for scalability, ensuring seamless integration into complex industrial ecosystems.</p>
+  <ul>
+    <li><strong>Industrial Automation:</strong> Leveraging IoT and AI to optimize manufacturing throughput and reduce operational downtime.</li>
+    <li><strong>Sustainable Infrastructure:</strong> Implementing green data protocols that reduce carbon footprints while maintaining peak computational performance.</li>
+    <li><strong>Economic Impact:</strong> Driving regional digital transformation, contributing to Singapore's status as a global technology and logistics hub.</li>
+    <li><strong>Operational Resilience:</strong> Enterprise-grade security frameworks that protect critical data assets against evolving cyber threats.</li>
+  </ul>
+
+  <h2 id="metrics-heading">Operational Excellence &amp; Performance Metrics (Nutritional Data)</h2>
+  <p>Our "Nutritional Information" reflects the core health and vitality of our digital services, ensuring your enterprise receives the highest quality of technological sustenance.</p>
+  <table aria-label="Enterprise Performance Metrics">
+    <thead>
+      <tr>
+        <th scope="col">Performance Component</th>
+        <th scope="col">Enterprise Value</th>
+        <th scope="col">Daily Operational Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>System Uptime</td>
+        <td>99.99%</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>Data Throughput</td>
+        <td>10 Gbps+</td>
+        <td>Critical</td>
+      </tr>
+      <tr>
+        <td>Latency Reduction</td>
+        <td>&lt; 5ms</td>
+        <td>Optimized</td>
+      </tr>
+      <tr>
+        <td>Security Compliance</td>
+        <td>ISO/IEC 27001</td>
+        <td>Essential</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="market-heading">Global Market Analysis and Logistics</h2>
+  <p>Positioned at the nexus of global trade, Harbourline Digital facilitates cross-border data flow and digital logistics. Our market analysis indicates a 15% year-over-year increase in demand for localized cloud solutions within the APAC region.</p>
+  <p>We manage complex supply chains for digital hardware and software deployment, ensuring that enterprise clients receive timely upgrades and support regardless of geographical location. Our logistics network is optimized for the rapid deployment of edge computing nodes across major international shipping and commerce lanes.</p>
+
+  <h2 id="form-heading">Enterprise Inquiry Gateway</h2>
+  <p>Connect with our consultants to discuss bespoke solutions tailored to your organizational requirements.</p>
 </Layout>
