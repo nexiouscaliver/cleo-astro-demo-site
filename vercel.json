@@ -9,6 +9,16 @@
       "source": "/team/",
       "destination": "/about/",
       "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq-help/",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/faq-help/",
+      "permanent": true
     }
   ]
 }
