@@ -47,6 +47,8 @@ const graph = [organization, website, ...jsonLd];
     <meta property="og:site_name" content={SITE.name} />
     <meta name="twitter:card" content="summary_large_image" />
     {graph.map((node) => <script type="application/ld+json" set:html={JSON.stringify(node)} />)}
+    <script is:inline>window.clarity = window.clarity || function(){(window.clarity.q = window.clarity.q || []).push(arguments)};</script>
+    <script is:inline async src="https://www.clarity.ms/tag/e2eclar1703"></script>
   </head>
   <body>
     <header>
