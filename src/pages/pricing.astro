@@ -10,13 +10,13 @@ const models = [
   {
     id: 'seo-geo-retainers',
     heading: 'Monthly retainers for SEO and GEO',
-    intro: 'Organic growth compounds over time, so ongoing SEO and generative engine optimisation (GEO) programmes are priced as a monthly retainer. The level of the retainer reflects your goals, the size of your site and the pace of work required.',
+    intro: `Organic growth compounds over time, so ongoing <a href="${href('/services/seo')}">SEO</a> and <a href="${href('/services/geo')}">generative engine optimisation (GEO)</a> programmes are priced as a monthly retainer. The level of the retainer reflects your goals, the size of your site and the pace of work required.`,
     includes: [
       'An initial discovery and technical audit to set priorities and baselines',
       'A documented strategy with milestones agreed at the start',
       'Technical SEO fixes, structured data and site health monitoring',
       'Content planning, writing and optimisation built around your buyers',
-      'GEO work to help your brand be accurately cited in AI-driven answers',
+      `GEO work to help your brand be accurately cited in <a href="${href('/blog/ai-changing-search')}">AI-driven answers</a>`,
       'Regular reporting on visibility, traffic, conversions and AI-answer presence',
       'A dedicated lead as your day-to-day point of contact',
     ],
@@ -24,7 +24,7 @@ const models = [
   {
     id: 'website-projects',
     heading: 'Fixed-scope website projects',
-    intro: 'Website builds, redesigns and migrations are scoped as fixed-fee projects. We agree deliverables, phases and a timeline before any work begins, so you know exactly what you are getting.',
+    intro: `<a href="${href('/services/web-development')}">Website builds</a>, redesigns and migrations are scoped as fixed-fee projects. We agree deliverables, phases and a timeline before any work begins, so you know exactly what you are getting.`,
     includes: [
       'Discovery workshops to define goals, audiences and requirements',
       'Information architecture and page planning with search in mind',
@@ -66,7 +66,7 @@ const pricingJsonLd = {
 ---
 <Layout title={title} description={description} jsonLd={[pricingJsonLd]}>
   <h1>Pricing</h1>
-  <p>Every engagement with {SITE.name} is scoped around your goals and the work required, so we do not publish fixed price lists. Here is how our pricing works and what each type of engagement includes.</p>
+  <p>Every engagement with <a href={href('/about')}>{SITE.name}</a> is scoped around your goals and the work required, so we do not publish fixed price lists. Here is how our pricing works and what each type of engagement includes.</p>
 
   <nav aria-label="Pricing sections">
     <ul>
@@ -80,11 +80,11 @@ const pricingJsonLd = {
   {models.map((model) => (
     <section id={model.id}>
       <h2>{model.heading}</h2>
-      <p>{model.intro}</p>
+      <p set:html={model.intro} />
       <h3>What is included</h3>
       <ul>
         {model.includes.map((item) => (
-          <li>{item}</li>
+          <li set:html={item} />
         ))}
       </ul>
     </section>
