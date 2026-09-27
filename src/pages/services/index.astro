@@ -3,8 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { SITE, href } from '../../site';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const jsonLd = [
+  {"@context": "https://schema.org", "@type": "Service", "name": "B2B SEO Services", "description": "Technical SEO, content strategy and link acquisition for B2B companies with long sales cycles, from a Singapore-based team.", "url": "https://cleo-astro-demo-site.vercel.app/services/seo/", "provider": {"@type": "Organization", "name": "Harbourline Digital"}, "serviceType": "SEO Services", "category": "Digital Marketing", "areaServed": {"@type": "Place", "name": "Singapore"}},
+  {"@context": "https://schema.org", "@type": "Service", "name": "Generative Engine Optimisation (GEO)", "description": "Get your brand cited in ChatGPT, Gemini, Perplexity and Google AI Overviews with GEO programmes built for B2B buyers.", "url": "https://cleo-astro-demo-site.vercel.app/services/geo/", "provider": {"@type": "Organization", "name": "Harbourline Digital"}, "serviceType": "Generative AI Optimization", "category": "Digital Marketing"},
+  {"@context": "https://schema.org", "@type": "Service", "name": "B2B Web Design & Development", "description": "Fast, accessible Astro and headless websites built for B2B lead generation, with SEO and analytics wired in from day one.", "url": "https://cleo-astro-demo-site.vercel.app/services/web-development/", "provider": {"@type": "Organization", "name": "Harbourline Digital"}, "serviceType": "Web Design and Development", "category": "Web Services"},
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cleo-astro-demo-site.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://cleo-astro-demo-site.vercel.app/services/"}]},
+];
 ---
-<Layout title={"SEO & GEO \"Proof\" Services, Café to Enterprise"} description={"Harbourline Digital's SEO & GEO services: audits, content and \"answer-first\" pages that AI engines cite. Café-sized to enterprise."}>
+<Layout title={"SEO & GEO \"Proof\" Services, Café to Enterprise"} description={"Harbourline Digital's SEO & GEO services: audits, content and \"answer-first\" pages that AI engines cite. Café-sized to enterprise."} jsonLd={jsonLd}>
   <h1>Services</h1>
   <ul>
     {services.map((s) => <li><a href={href(`/services/${s.id}/`)}>{s.data.title}</a> — {s.data.description}</li>)}
