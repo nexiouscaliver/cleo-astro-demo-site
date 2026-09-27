@@ -29,6 +29,16 @@
       "source": "/our-team/",
       "destination": "/about/",
       "permanent": true
+    },
+    {
+      "source": "/e2e-team-old",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/e2e-team-old/",
+      "destination": "/about/",
+      "permanent": true
     }
   ]
 }
