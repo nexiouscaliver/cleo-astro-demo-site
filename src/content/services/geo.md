@@ -9,3 +9,7 @@ seoTitle: "Generative Engine | Harbourline Digital"
 seoDescription: "Need AI citations? Harbourline Digital GEO tracks mentions and builds answer-first content."
 ---
 We track how often AI engines mention and cite you, then close the gaps with structured, answer-first content.
+
+## How we measure GEO results
+
+We track how often AI assistants such as ChatGPT, Perplexity and Google AI Overviews mention and cite your brand for the questions your buyers ask. Each month we report citation share, answer prominence and sentiment, and tie changes back to the content we shipped.
