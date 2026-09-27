@@ -4,6 +4,8 @@ author: Daniel Koh
 pubDate: 2026-07-02
 seoTitle: "B2B Messaging | Harbourline Digital"
 seoDescription: "Looking for B2B messaging help? Harbourline Digital shares a framework to map buyers. Read now."
+ogTitle: "B2B Messaging Framework Guide"
+ogDescription: "Looking for B2B messaging help? Harbourline Digital maps buyers and committees. Read now."
 ---
 In the last three months, every [client meeting](/contact) I have walked into started with the same question about [messaging](/services).
 

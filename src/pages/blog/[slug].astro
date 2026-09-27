@@ -18,7 +18,7 @@ const jsonLd = [{
   author: { '@type': 'Person', name: post.data.author },
 }];
 ---
-<Layout title={post.data.seoTitle ?? `${post.data.title} | ${SITE.name}`} description={post.data.seoDescription ?? post.data.description} jsonLd={jsonLd} canonical={post.data.canonical}>
+<Layout title={post.data.seoTitle ?? `${post.data.title} | ${SITE.name}`} description={post.data.seoDescription ?? post.data.description} jsonLd={jsonLd} canonical={post.data.canonical} ogTitle={post.data.ogTitle} ogDescription={post.data.ogDescription}>
   <article>
     <h1>{post.data.title}</h1>
     <p>By {post.data.author} · <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toDateString()}</time></p>
