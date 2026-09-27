@@ -9,6 +9,16 @@
       "source": "/team/",
       "destination": "/about/",
       "permanent": true
+    },
+    {
+      "source": "/old-services",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/old-services/",
+      "destination": "/services/",
+      "permanent": true
     }
   ]
 }
