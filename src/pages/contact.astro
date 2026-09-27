@@ -30,8 +30,29 @@ const jsonLd = {
     ]
   }
 };
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@context": "https://schema.org",
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Harbourline Digital",
+      "item": "https://cleo-astro-demo-site.vercel.app/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://cleo-astro-demo-site.vercel.app/contact/"
+    }
+  ]
+};
 ---
-<Layout title="Contact B2B Marketing in Singapore" description="Looking for B2B marketing in Singapore? Harbourline Digital helps with SEO and GEO. Contact us now.">
+<Layout title="Contact B2B Marketing in Singapore" description="Looking for B2B marketing in Singapore? Harbourline Digital helps with SEO and GEO. Contact us now." jsonLd={[breadcrumbJsonLd]}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
   <h1>Contact us</h1>
   <address>
