@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import { SITE, href } from '../../site';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
-<Layout title="SEO and B2B Web Dev in Singapore" description="Need SEO, GEO or B2B web development in Singapore? Harbourline Digital can help. Talk to our team.">
+<Layout title={"SEO & GEO \"Proof\" Services, Café to Enterprise"} description={"Harbourline Digital's SEO & GEO services: audits, content and \"answer-first\" pages that AI engines cite. Café-sized to enterprise."}>
   <h1>Services</h1>
   <ul>
     {services.map((s) => <li><a href={href(`/services/${s.id}/`)}>{s.data.title}</a> — {s.data.description}</li>)}
