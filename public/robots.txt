@@ -17,5 +17,10 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+# User-agent: PerplexityBot  # REMOVED — blocking AI crawler
+# Disallow: /  # REMOVED — was blocking AI crawler
+
+
+# ── AI Crawler Access (added by CLEO) ──
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
