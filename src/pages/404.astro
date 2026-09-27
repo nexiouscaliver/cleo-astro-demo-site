@@ -5,10 +5,10 @@ import { SITE, href } from '../site';
 // Utility page: not-found. No page-level JSON-LD, no canonical of its own.
 // The host serves this file with a 404 status, which keeps it out of search results.
 ---
-<Layout title="Page not found — Harbourline Digital" description="Sorry, the page you were looking for could not be found.">
-  <h1>Page not found</h1>
-  <p><strong>Error 404.</strong> Sorry, we couldn't find the page you were looking for.</p>
-  <p>The link you followed may be broken or out of date, or the page may have been moved or removed. We apologise for the inconvenience.</p>
+<Layout title="Sorry, that page is missing" description="Sorry, the page you were looking for could not be found.">
+  <h1>Sorry, that page is missing</h1>
+  <p><strong>Error 404: page not found.</strong> We couldn't find the page you were looking for.</p>
+  <p>The link you followed may be broken or out of date, or the page may have been moved or removed. We're sorry for the inconvenience.</p>
   <p>The best place to pick things up again is the {SITE.name} homepage.</p>
   <p><a href={href('/')}>Back to the homepage</a></p>
 </Layout>
