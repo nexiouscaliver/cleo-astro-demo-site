@@ -17,6 +17,8 @@ const services = defineCollection({
 const blog = defineCollection({
   loader: glob({ base: './src/content/blog', pattern: '**/*.md' }),
   schema: z.object({
+    ogTitle: z.string().optional(),
+    ogDescription: z.string().optional(),
     canonical: z.string().optional(),
     seoDescription: z.string().optional(),
     seoTitle: z.string().optional(),

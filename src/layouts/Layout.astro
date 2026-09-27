@@ -8,9 +8,10 @@ interface Props {
   jsonLd?: Record<string, unknown>[];
   ogTitle?: string;
   canonical?: string;
+  ogDescription?: string;
 }
 
-const { title, description, ogType = 'website', jsonLd = [], ogTitle } = Astro.props;
+const { title, description, ogType = 'website', jsonLd = [], ogTitle, ogDescription } = Astro.props;
 const canonicalHref = new URL(Astro.url.pathname, Astro.site).href;
 const canonical = Astro.props.canonical ? new URL(Astro.props.canonical, Astro.site).href : (Astro.url.pathname === import.meta.env.BASE_URL ? canonicalHref.replace(/\/$/, '') : canonicalHref);
 const home = new URL(import.meta.env.BASE_URL, Astro.site).href;
@@ -44,7 +45,7 @@ const graph = [organization, website, ...jsonLd];
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={ogTitle ?? (title)} />
-    {description && <meta property="og:description" content={description} />}
+    {(ogDescription ?? description) && <meta property="og:description" content={ogDescription ?? (description)} />}
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.name} />
     <meta name="twitter:card" content="summary_large_image" />
