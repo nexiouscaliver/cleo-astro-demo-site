@@ -15,5 +15,7 @@ faqs:
     a: Harbourline Digital's core strategy involves auditing crawlability and fixing technical debt. We then build strategic topic clusters around the questions your B2B buyers actually search.
   - q: How does Harbourline Digital ensure B2B SEO content is relevant to buyers?
     a: Harbourline Digital ensures relevance by building topic clusters that directly address the questions your B2B buyers are actively searching. This approach helps capture qualified organic traffic by aligning with their specific intent.
+ogTitle: "B2B SEO Services in Singapore"
+ogDescription: "Looking for B2B SEO in Singapore? Harbourline Digital fixes tech debt, builds clusters. Learn more."
 ---
 We audit crawlability, fix technical debt, and build topic clusters around the questions your buyers actually search.
