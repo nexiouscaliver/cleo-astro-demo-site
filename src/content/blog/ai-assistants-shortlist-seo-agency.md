@@ -8,8 +8,7 @@ seoDescription: 'B2b seo agency: These days, B2B buyers open a chat window befor
   they open a search engine. They''ll ask ChatGPT or Perplexity to name and compare
   SEO.'
 tags:
-- b2b seo
-- ai search
+- b2b seo agency
 ---
 
 These days, B2B buyers open a chat window before they open a search engine. They'll ask ChatGPT or Perplexity to name and compare SEO agencies long before any sales call happens. By the time a buying group gets in touch, the shortlist is often set already. It's built from whatever the AI tool threw up when someone typed something like "best B2B SEO agency for a mid-size software company."
@@ -20,7 +19,7 @@ It's something we keep a close eye on at **Harbourline Digital**: the shortlist 
 
 Gartner's research on B2B buying has shown for a while now that buying groups usually involve six to ten stakeholders, each doing their own digging before the group compares notes. When each of those people asks an AI assistant the same question on their own, the agency's public evidence needs to hold up across all those conversations, not just one.
 
-## What "AI-assisted shortlisting" actually means
+## What "AI-assisted shortlisting" actually means today
 
 AI-assisted shortlisting is when a buyer uses a conversational assistant to put together, narrow down, or double-check a vendor list, rather than building one from search results. The buyer asks a straightforward question, the assistant names a few companies, and the buyer takes that answer as a starting point rather than checking everything from scratch.
 
