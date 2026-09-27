@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, href } from '../site';
+
+const pageUrl = 'https://cleo-astro-demo-site.vercel.app/pricing';
+const title = 'Pricing | Harbourline Digital';
+const description = 'How Harbourline Digital scopes and prices B2B engagements: monthly retainers for SEO and GEO, and fixed-scope website projects. Contact us for a tailored quote.';
+
+const models = [
+  {
+    id: 'seo-geo-retainers',
+    heading: 'Monthly retainers for SEO and GEO',
+    intro: 'Organic growth compounds over time, so ongoing SEO and generative engine optimisation (GEO) programmes are priced as a monthly retainer. The level of the retainer reflects your goals, the size of your site and the pace of work required.',
+    includes: [
+      'An initial discovery and technical audit to set priorities and baselines',
+      'A documented strategy with milestones agreed at the start',
+      'Technical SEO fixes, structured data and site health monitoring',
+      'Content planning, writing and optimisation built around your buyers',
+      'GEO work to help your brand be accurately cited in AI-driven answers',
+      'Regular reporting on visibility, traffic, conversions and AI-answer presence',
+      'A dedicated lead as your day-to-day point of contact',
+    ],
+  },
+  {
+    id: 'website-projects',
+    heading: 'Fixed-scope website projects',
+    intro: 'Website builds, redesigns and migrations are scoped as fixed-fee projects. We agree deliverables, phases and a timeline before any work begins, so you know exactly what you are getting.',
+    includes: [
+      'Discovery workshops to define goals, audiences and requirements',
+      'Information architecture and page planning with search in mind',
+      'Design and development of an accessible, fast marketing site',
+      'SEO-safe migrations, including redirects and content mapping',
+      'Structured data and technical foundations ready for SEO and GEO',
+      'Testing, launch support and a handover so your team can manage content',
+    ],
+  },
+  {
+    id: 'audits',
+    heading: 'Audits and one-off projects',
+    intro: 'If you need a focused piece of work, such as a technical SEO audit or a GEO readiness review, we scope it as a standalone fixed-fee project with clear deliverables and recommendations.',
+    includes: [
+      'A defined scope and deliverables agreed up front',
+      'Prioritised, practical recommendations your team can act on',
+      'A walkthrough session to discuss findings and next steps',
+    ],
+  },
+];
+
+const steps = [
+  { heading: 'Introductory call', text: 'We learn about your business, goals and current challenges.' },
+  { heading: 'Scoping', text: 'We review your site and data to understand the work required.' },
+  { heading: 'Proposal', text: 'You receive a written proposal outlining scope, timeline and pricing.' },
+  { heading: 'Kick-off', text: 'Once agreed, we begin with discovery and an audit phase.' },
+];
+
+const pricingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl}#webpage`,
+  url: pageUrl,
+  name: title,
+  description,
+  isPartOf: { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
+  publisher: { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+};
+---
+<Layout title={title} description={description} jsonLd={[pricingJsonLd]}>
+  <h1>Pricing</h1>
+  <p>Every engagement with {SITE.name} is scoped around your goals and the work required, so we do not publish fixed price lists. Here is how our pricing works and what each type of engagement includes.</p>
+
+  <nav aria-label="Pricing sections">
+    <ul>
+      {models.map((model) => (
+        <li><a href={`#${model.id}`}>{model.heading}</a></li>
+      ))}
+      <li><a href="#how-we-quote">How we quote</a></li>
+    </ul>
+  </nav>
+
+  {models.map((model) => (
+    <section id={model.id}>
+      <h2>{model.heading}</h2>
+      <p>{model.intro}</p>
+      <h3>What is included</h3>
+      <ul>
+        {model.includes.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <section id="how-we-quote">
+    <h2>How we quote</h2>
+    <p>Proposals clearly list what is included. Third-party costs such as paid tools, hosting or licences are called out separately so there are no surprises.</p>
+    <ol>
+      {steps.map((step) => (
+        <li>
+          <h3>{step.heading}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+    <p>Have more questions about contracts or terms? See our <a href={href('/faq/')}>frequently asked questions</a>.</p>
+  </section>
+
+  <section>
+    <h2>Get a quote</h2>
+    <p>Tell us about your goals and we will put together a proposal tailored to your business.</p>
+    <p><a href={href('/contact/')}>Contact us for a quote</a></p>
+  </section>
+</Layout>
