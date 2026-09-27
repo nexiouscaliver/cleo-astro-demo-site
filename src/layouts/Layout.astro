@@ -50,6 +50,8 @@ const graph = [organization, website, ...jsonLd];
     <meta property="og:site_name" content={SITE.name} />
     <meta name="twitter:card" content="summary_large_image" />
     {graph.map((node) => <script type="application/ld+json" set:html={JSON.stringify(node)} />)}
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E2ETEST001"></script>
+    <script is:inline>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-E2ETEST001');</script>
   </head>
   <body>
     <header>
