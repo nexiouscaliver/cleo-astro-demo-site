@@ -7,7 +7,7 @@ seoDescription: "Looking for B2B messaging help? Harbourline Digital maps buying
 ogTitle: "B2B Messaging Framework Guide"
 ogDescription: "Looking for B2B messaging help? Harbourline Digital maps buyers and committees. Read now."
 ---
-In the last three months, every [client meeting](/contact) I have walked into started with the same question about [messaging](/services).
+In the last three months, every [client meeting](/contact) I have walked into started with the same question about [messaging](/old-case-studies/).
 
 ## Start with the buying committee
 
