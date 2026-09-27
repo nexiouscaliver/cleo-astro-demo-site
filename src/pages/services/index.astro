@@ -3,8 +3,51 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { SITE, href } from '../../site';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/services/#webpage',
+    'url': 'https://cleo-astro-demo-site.vercel.app/services/',
+    'name': 'SEO and B2B Web Dev in Singapore',
+    'description': 'Need SEO, GEO or B2B web development in Singapore? Harbourline Digital can help. Talk to our team.',
+    'isPartOf': { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
+    'publisher': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/services/seo/#service',
+    'name': 'B2B SEO Services',
+    'description': 'Technical SEO, content strategy and link acquisition for B2B companies with long sales cycles, from a Singapore-based team.',
+    'url': 'https://cleo-astro-demo-site.vercel.app/services/seo/',
+    'serviceType': 'B2B SEO',
+    'provider': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/services/geo/#service',
+    'name': 'Generative Engine Optimisation (GEO)',
+    'description': 'Get your brand cited in ChatGPT, Gemini, Perplexity and Google AI Overviews with GEO programmes built for B2B buyers.',
+    'url': 'https://cleo-astro-demo-site.vercel.app/services/geo/',
+    'serviceType': 'Generative AI SEO',
+    'provider': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://cleo-astro-demo-site.vercel.app/services/web-development/#service',
+    'name': 'B2B Web Design & Development',
+    'description': 'Fast, accessible Astro and headless websites built for B2B lead generation, with SEO and analytics wired in from day one.',
+    'url': 'https://cleo-astro-demo-site.vercel.app/services/web-development/',
+    'serviceType': 'B2B Web Development',
+    'provider': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  },
+];
 ---
 <Layout title="SEO and B2B Web Dev in Singapore" description="Need SEO, GEO or B2B web development in Singapore? Harbourline Digital can help. Talk to our team.">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
   <h1>Services</h1>
   <ul>
     {services.map((s) => <li><a href={href(`/services/${s.id}/`)}>{s.data.title}</a> — {s.data.description}</li>)}
