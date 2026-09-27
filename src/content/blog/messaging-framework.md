@@ -2,8 +2,8 @@
 title: From Job Titles to Real Conversations — A B2B Messaging Framework
 author: Daniel Koh
 pubDate: 2026-07-02
-seoTitle: "B2B Messaging | Harbourline Digital"
-seoDescription: "Looking for B2B messaging help? Harbourline Digital shares a framework to map buyers. Read now."
+seoTitle: "B2B Messaging Framework Guide"
+seoDescription: "Looking for B2B messaging help? Harbourline Digital maps buying committees. Read now."
 ogTitle: "B2B Messaging Framework Guide"
 ogDescription: "Looking for B2B messaging help? Harbourline Digital maps buyers and committees. Read now."
 ---
