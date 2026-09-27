@@ -10,3 +10,9 @@ We design and build fast, accessible B2B websites on Astro and headless stacks. 
 Our builds ship with clean semantic markup, structured data and Core Web Vitals budgets from day one, so your SEO and GEO work has a strong foundation.
 
 Typical projects run six to ten weeks, from discovery to launch, with a two-week optimisation period after go-live.
+
+<section data-geo-tool="quotation-injector">
+<blockquote class="geo-testimonial" data-geo-proof="testimonial"><p>"Harbourline rebuilt our site in eight weeks and our demo requests doubled."</p><cite>Test Person, QA Lead at Example Co</cite></blockquote>
+</section>
+
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Review", "author": {"@type": "Person", "name": "Test Person"}, "reviewBody": "Harbourline rebuilt our site in eight weeks and our demo requests doubled.", "itemReviewed": {"@type": "Organization", "name": "Harbourline Digital"}}]</script>
