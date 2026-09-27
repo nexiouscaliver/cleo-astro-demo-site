@@ -11,7 +11,7 @@ seoDescription: AI search readiness means your website is built so AI assistants
 
 AI search readiness means your website is built so AI assistants, not just traditional search engines, can find it, understand it, and cite it when a buyer asks a question. For B2B companies, that matters because buying committees now start their research in chat interfaces long before anyone fills out a contact form. At Harbourline Digital, we check five specific signals before telling a client their site is genuinely ready for this kind of traffic.
 
-## Your pages answer one question each
+## Each page answers one clear question
 
 The first sign is structural: each page should answer one clearly scoped question, not try to cover an entire topic in one go.
 
