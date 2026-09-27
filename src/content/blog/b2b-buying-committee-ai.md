@@ -12,7 +12,7 @@ A B2B buying committee now uses AI assistants to compress research that used to 
 
 One honest caveat: the specific adoption numbers, the share of committees doing this, the average time saved, are not figures we can stand behind today. What follows is grounded in how the process actually works, drawn from what Harbourline Digital sees across client accounts, not from a single survey statistic.
 
-## Why buying committees turned to AI assistants first
+## Why buying committees turned to AI assistants first today
 
 Buying committees adopted AI assistants because the traditional research phase was the slowest, most fragmented part of a purchase. A typical B2B deal involves multiple stakeholders, finance, IT, the end-user department, sometimes procurement or legal, and each one historically ran scattered searches, read different reviews, and arrived at the first vendor call with a different mental shortlist.
 
