@@ -11,6 +11,6 @@ In the last three months, every [client meeting](/contact) I have walked into st
 
 ## Start with the buying committee
 
-![B2B buying committee flowchart](/images/buying-committee-map.png)
+![](/images/buying-committee-map.png)
 
 Map who signs, who uses, and who blocks before you write a single [headline](/services/seo).
