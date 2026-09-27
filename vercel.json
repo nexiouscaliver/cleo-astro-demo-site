@@ -39,6 +39,16 @@
       "source": "/e2e-team-old/",
       "destination": "/about/",
       "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/plans/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing/",
+      "destination": "/plans/",
+      "permanent": true
     }
   ]
 }
