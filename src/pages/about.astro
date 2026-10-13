@@ -13,6 +13,26 @@ const jsonLd = {
   'publisher': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
   'mainEntity': { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
 };
+
+const faqs = [
+  { q: 'What kind of B2B marketing agency is Harbourline Digital?', a: 'Harbourline Digital is a B2B marketing team based in Singapore, comprising 30 strategists, writers, and engineers. They specialize in building content around what buyers actually ask. This focused approach ensures highly relevant and effective marketing outcomes.' },
+  { q: 'When was Harbourline Digital founded?', a: 'Harbourline Digital was founded in 2013. Since its inception, the agency has grown into a team of 30 professionals dedicated to B2B marketing strategies. Their long-standing experience underpins their strategic insights.' },
+  { q: 'Where is Harbourline Digital based?', a: 'Harbourline Digital is based in Singapore. Their team of 30 strategists, writers, and engineers operates from this location, serving B2B clients with tailored marketing solutions.' },
+  { q: "What is Harbourline Digital's core approach to B2B marketing?", a: 'They start every engagement with a technical audit and a buyer-question map. This allows them to build content precisely around what buyers actually ask, ensuring relevance and impact for their clients.' },
+  { q: 'How many team members does Harbourline Digital have?', a: 'Harbourline Digital has a team of 30 professionals, including strategists, writers, and engineers. This diverse expertise supports their comprehensive B2B marketing approach, delivering integrated solutions.' },
+  { q: 'What is the purpose of the sandbox site mentioned on this page?', a: "This website functions as a sandbox site specifically for CLEO code-channel demos. It allows for testing and showcasing technical implementations, demonstrating the agency's commitment to cutting-edge solutions." },
+  { q: 'How does Harbourline Digital utilize its website for technical demonstrations?', a: 'Harbourline Digital uses this site as a sandbox for CLEO code-channel demos, highlighting their engineering capabilities. This approach ensures their strategies are technically sound and effective for clients, leveraging advanced tools.' },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    'name': q,
+    'acceptedAnswer': { '@type': 'Answer', 'text': a },
+  })),
+};
 ---
 <Layout ogTitle="B2B Marketing Team in Singapore" title="B2B Marketing Team | Harbourline Digital" description="Looking for B2B marketing in Singapore? Harbourline Digital is a 30-person team. Learn more." canonical="https://cleo-astro-demo-site.vercel.app/about/">
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
@@ -21,4 +41,50 @@ const jsonLd = {
   <h2>Our approach</h2>
   <p>We start every engagement with a technical audit and a buyer-question map, then build content around what buyers actually ask.</p>
   <img src={href('/images/harbourline-team.png')} alt="Q3 plan meeting" width="1200" height="600" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd).replace(/</g, '\\u003c')} />
+<section class="geo-faq" data-geo-tool="faq-generator" style="background-color: #ffffff; color: #333333; padding: 2rem; margin: 2rem 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; line-height: 1.6;">
+<h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #222222;">Frequently Asked Questions about Harbourline Digital</h2>
+<details class="geo-faq-item" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; padding: 1rem;">
+<summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem; color: #333333;">What kind of B2B marketing agency is Harbourline Digital?</summary>
+<div class="geo-faq-answer" style="padding-top: 0.5rem; font-size: 1rem; color: #333333;">
+      Harbourline Digital is a B2B marketing team based in Singapore, comprising 30 strategists, writers, and engineers. They specialize in building content around what buyers actually ask. This focused approach ensures highly relevant and effective marketing outcomes.
+    </div>
+</details>
+<details class="geo-faq-item" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; padding: 1rem;">
+<summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem; color: #333333;">When was Harbourline Digital founded?</summary>
+<div class="geo-faq-answer" style="padding-top: 0.5rem; font-size: 1rem; color: #333333;">
+      Harbourline Digital was founded in 2013. Since its inception, the agency has grown into a team of 30 professionals dedicated to B2B marketing strategies. Their long-standing experience underpins their strategic insights.
+    </div>
+</details>
+<details class="geo-faq-item" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; padding: 1rem;">
+<summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem; color: #333333;">Where is Harbourline Digital based?</summary>
+<div class="geo-faq-answer" style="padding-top: 0.5rem; font-size: 1rem; color: #333333;">
+      Harbourline Digital is based in Singapore. Their team of 30 strategists, writers, and engineers operates from this location, serving B2B clients with tailored marketing solutions.
+    </div>
+</details>
+<details class="geo-faq-item" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; padding: 1rem;">
+<summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem; color: #333333;">What is Harbourline Digital's core approach to B2B marketing?</summary>
+<div class="geo-faq-answer" style="padding-top: 0.5rem; font-size: 1rem; color: #333333;">
+      They start every engagement with a technical audit and a buyer-question map. This allows them to build content precisely around what buyers actually ask, ensuring relevance and impact for their clients.
+    </div>
+</details>
+<details class="geo-faq-item" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; padding: 1rem;">
+<summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem; color: #333333;">How many team members does Harbourline Digital have?</summary>
+<div class="geo-faq-answer" style="padding-top: 0.5rem; font-size: 1rem; color: #333333;">
+      Harbourline Digital has a team of 30 professionals, including strategists, writers, and engineers. This diverse expertise supports their comprehensive B2B marketing approach, delivering integrated solutions.
+    </div>
+</details>
+<details class="geo-faq-item" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; padding: 1rem;">
+<summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem; color: #333333;">What is the purpose of the sandbox site mentioned on this page?</summary>
+<div class="geo-faq-answer" style="padding-top: 0.5rem; font-size: 1rem; color: #333333;">
+      This website functions as a sandbox site specifically for CLEO code-channel demos. It allows for testing and showcasing technical implementations, demonstrating the agency's commitment to cutting-edge solutions.
+    </div>
+</details>
+<details class="geo-faq-item" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; padding: 1rem;">
+<summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem; color: #333333;">How does Harbourline Digital utilize its website for technical demonstrations?</summary>
+<div class="geo-faq-answer" style="padding-top: 0.5rem; font-size: 1rem; color: #333333;">
+      Harbourline Digital uses this site as a sandbox for CLEO code-channel demos, highlighting their engineering capabilities. This approach ensures their strategies are technically sound and effective for clients, leveraging advanced tools.
+    </div>
+</details>
+</section>
 </Layout>
