@@ -17,5 +17,5 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
   <ul>
     {services.map((s) => <li><a href={href(`/services/${s.id}/`)}>{s.data.title}</a></li>)}
   </ul>
- <p><a href="/old-case-studies-e2e-n8/">Old case studies</a></p>
+ <p><a href="/about/">Old case studies</a></p>
 </Layout>
