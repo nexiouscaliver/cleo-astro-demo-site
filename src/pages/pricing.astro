@@ -63,8 +63,47 @@ const pricingJsonLd = {
   isPartOf: { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
   publisher: { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
 };
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is included in Monthly retainers for SEO and GEO?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'An initial discovery and technical audit to set priorities and baselines. A documented strategy with milestones agreed at the start. Technical SEO fixes, structured data and site health monitoring. Content planning, writing and optimisation built around your buyers. GEO work to help your brand be accurately cited in AI-driven answers. Regular reporting on visibility, traffic, conversions and AI-answer presence. A dedicated lead as your day-to-day point of contact.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is included in Fixed-scope website projects?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Discovery workshops to define goals, audiences and requirements. Information architecture and page planning with search in mind. Design and development of an accessible, fast marketing site. SEO-safe migrations, including redirects and content mapping. Structured data and technical foundations ready for SEO and GEO. Testing, launch support and a handover so your team can manage content.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is included in Audits and one-off projects?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A defined scope and deliverables agreed up front. Prioritised, practical recommendations your team can act on. A walkthrough session to discuss findings and next steps.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does Harbourline Digital quote for projects?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'First, we have an introductory call to learn about your business, goals and current challenges. Next, we proceed with scoping where we review your site and data to understand the work required. Following this, you receive a written proposal outlining the scope, timeline, and pricing. Finally, once agreed, we kick off the engagement with a discovery and audit phase.',
+      },
+    },
+  ],
+};
 ---
-<Layout title="B2B SEO and GEO Pricing" description="Looking for B2B SEO and GEO pricing? Harbourline Digital offers retainers and fixed-scope quotes." jsonLd={[pricingJsonLd]}>
+<Layout title="B2B SEO and GEO Pricing" description="Looking for B2B SEO and GEO pricing? Harbourline Digital offers retainers and fixed-scope quotes." jsonLd={[pricingJsonLd, faqJsonLd]}>
   <h1>Pricing</h1>
   <p>Every engagement with {SITE.name} is scoped around your goals and the work required, so we do not publish fixed price lists. Here is how our pricing works and what each type of engagement includes.</p>
 
