@@ -4,8 +4,8 @@ description: 'B2B buying committee AI: A B2B buying committee now uses AI assist
   to compress research that used to take weeks into days. Members ask a chatbot to.'
 author: Shahil Kadia
 pubDate: 2026-09-27
-seoDescription: 'B2B buying committee AI: A B2B buying committee now uses AI assistants
-  to compress research that used to take weeks into days. Members ask a chatbot to.'
+seoDescription: "Looking for B2B buying committee AI insights? Harbourline Digital explains how shortlists form."
+seoTitle: "B2B Buying Committee AI Guide"
 ---
 
 A B2B buying committee now uses AI assistants to compress research that used to take weeks into days. Members ask a chatbot to summarize vendor categories, draft comparison criteria, and flag which providers appear consistently in independent reviews, all before anyone speaks to a salesperson. That shift changes what a vendor's web presence must do. It has to be legible to a language model, not just to a human scanning a search results page.
