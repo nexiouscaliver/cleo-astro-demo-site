@@ -51,8 +51,14 @@ const breadcrumbJsonLd = {
     }
   ]
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": []
+};
 ---
-<Layout title="Contact B2B Marketing in Singapore" description="Looking for B2B marketing in Singapore? Harbourline Digital helps with SEO and GEO. Contact us now." jsonLd={[breadcrumbJsonLd]}>
+<Layout title="Contact B2B Marketing in Singapore" description="Looking for B2B marketing in Singapore? Harbourline Digital helps with SEO and GEO. Contact us now." jsonLd={[breadcrumbJsonLd, faqJsonLd]}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
   <h1>Contact us</h1>
   <address>
