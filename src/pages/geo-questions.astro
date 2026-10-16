@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, href } from '../site';
+
+const pageUrl = 'https://cleo-astro-demo-site.vercel.app/geo-questions';
+const title = 'GEO questions answered';
+const description = 'Five short answers on generative engine optimisation (GEO) for B2B buyers: what it is, how it relates to SEO, timelines and how to measure it.';
+
+const items = [
+  {
+    q: 'What is generative engine optimisation (GEO)?',
+    a: 'GEO is the practice of making your brand accurately cited and recommended in AI-generated answers, such as AI search overviews and chat assistants. It focuses on clear, well-structured and trustworthy content that AI systems can understand and reference.',
+  },
+  {
+    q: 'Why should B2B buyers care about GEO?',
+    a: 'B2B buyers increasingly use AI assistants to research suppliers, compare options and shortlist vendors. If your brand is missing or misrepresented in those answers, you can lose consideration before a buyer ever visits your website.',
+  },
+  {
+    q: 'Does GEO replace SEO?',
+    a: 'No. GEO builds on the same foundations as SEO, including technical health, structured data and authoritative content. We plan the two together so that work on one strengthens the other.',
+  },
+  {
+    q: 'How long does GEO take to show results?',
+    a: 'Structural improvements such as clearer content and schema markup can influence AI answers within weeks, while broader authority and citation gains usually build over several months. We agree milestones at the start so progress is visible.',
+  },
+  {
+    q: 'How do you measure GEO success?',
+    a: 'We track how often and how accurately your brand appears in AI-driven answers for priority topics, alongside referral traffic, qualified leads and pipeline influenced by organic and AI channels.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#webpage`,
+  url: pageUrl,
+  name: title,
+  description,
+  isPartOf: { '@id': 'https://cleo-astro-demo-site.vercel.app/#website' },
+  publisher: { '@id': 'https://cleo-astro-demo-site.vercel.app/#organization' },
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+<Layout title={title} description={description} canonical={pageUrl} jsonLd={[faqJsonLd]}>
+  <h1>GEO questions answered</h1>
+  <p>Five short answers to the questions B2B buyers ask us most about generative engine optimisation and how {SITE.name} approaches it.</p>
+
+  <section>
+    {items.map((item) => (
+      <div>
+        <h2>{item.q}</h2>
+        <p>{item.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section>
+    <h2>Still have questions?</h2>
+    <p>We are happy to talk through how GEO could support your pipeline.</p>
+    <p><a href={href('/contact/')}>Contact us</a></p>
+  </section>
+</Layout>
